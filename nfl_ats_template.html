@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NFL ATS Reversion Model</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#000; --panel:#05080a; --panel2:#0a0f12; --line:#13221b; --line2:#1c2f26;
+  --ink:#d7e6df; --mut:#7f948a; --dim:#4b5a53;
+  --g:#39ff88; --g2:#1fbf62; --r:#ff3b5c; --r2:#c42343; --a:#ffd23f; --c:#8a918e;
+  --glowg:0 0 6px rgba(57,255,136,.75),0 0 18px rgba(57,255,136,.35);
+  --glowr:0 0 6px rgba(255,59,92,.75),0 0 18px rgba(255,59,92,.35);
+  --glowc:0 0 6px rgba(46,230,255,.7),0 0 16px rgba(46,230,255,.3);
+  --glowa:0 0 6px rgba(255,210,63,.7),0 0 16px rgba(255,210,63,.3);
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;font-size:13px}
+body{background:radial-gradient(1200px 500px at 50% -200px,rgba(57,255,136,.08),transparent 70%),#000;min-height:100vh}
+.wrap{max-width:1280px;margin:0 auto;padding:22px 22px 60px}
+header{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap}
+h1{font-family:'Orbitron',sans-serif;font-weight:800;letter-spacing:.12em;font-size:22px;margin:0;color:var(--g);text-shadow:var(--glowg)}
+.sub{color:var(--mut);font-size:11px;margin-top:6px;letter-spacing:.04em}
+.datebar{display:flex;align-items:center;gap:8px}
+.btn{background:var(--panel2);color:var(--c);border:1px solid var(--line2);border-radius:6px;padding:7px 11px;font:inherit;cursor:pointer;text-shadow:var(--glowc)}
+.btn:hover{border-color:var(--c);box-shadow:0 0 10px rgba(46,230,255,.25)}
+select,input[type=checkbox]{accent-color:var(--g)}
+select{background:var(--panel2);color:var(--ink);border:1px solid var(--line2);border-radius:6px;padding:7px 9px;font:inherit}
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:20px 0 18px}
+.kpi{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:10px;padding:14px 16px;position:relative;overflow:hidden}
+.kpi::after{content:"";position:absolute;inset:auto 0 0 0;height:2px;background:linear-gradient(90deg,transparent,var(--kc,var(--g)),transparent);opacity:.6}
+.kpi .lbl{color:var(--mut);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase}
+.kpi .val{font-family:'Orbitron',sans-serif;font-size:26px;font-weight:800;margin-top:8px}
+.kpi .foot{color:var(--mut);font-size:11px;margin-top:6px}
+.pos{color:var(--g);text-shadow:var(--glowg)} .neg{color:var(--r);text-shadow:var(--glowr)}
+.amb{color:var(--a);text-shadow:var(--glowa)} .cy{color:var(--c);text-shadow:var(--glowc)} .mut{color:var(--mut)} .dim{color:var(--dim)}
+nav{display:flex;gap:4px;border-bottom:1px solid var(--line2);margin-bottom:16px}
+nav button{background:none;border:none;color:var(--mut);font:inherit;font-family:'Orbitron',sans-serif;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;padding:11px 16px;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px}
+nav button.on{color:var(--g);text-shadow:var(--glowg);border-bottom-color:var(--g)}
+nav button:hover{color:var(--ink)}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:auto}
+.ph{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.ph h2{margin:0;font-family:'Orbitron',sans-serif;font-size:13px;letter-spacing:.14em;color:var(--c);text-shadow:var(--glowc)}
+.ph .note{color:var(--mut);font-size:11px}
+table{width:100%;border-collapse:collapse}
+th{position:sticky;top:0;background:#070b0d;color:var(--mut);font-weight:600;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;text-align:left;padding:10px 12px;border-bottom:1px solid var(--line2);white-space:nowrap;cursor:default}
+th.sort{cursor:pointer} th.sort:hover{color:var(--ink)}
+td{padding:9px 12px;border-bottom:1px solid #0d1713;white-space:nowrap}
+tr:hover td{background:rgba(46,230,255,.035)}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+td.c,th.c{text-align:center}
+.team{font-weight:700;letter-spacing:.04em}
+.chip{display:inline-block;padding:3px 8px;border-radius:999px;font-size:10.5px;border:1px solid;letter-spacing:.03em}
+.chip.ride{color:var(--c);border-color:rgba(46,230,255,.5);text-shadow:var(--glowc)}
+.chip.fade{color:var(--r);border-color:rgba(255,59,92,.45)}
+.chip.buy{color:var(--g);border-color:rgba(57,255,136,.45)}
+.chip.fair{color:var(--mut);border-color:var(--line2)}
+.chip.early{color:var(--dim);border-color:#1a2420}
+.res{display:inline-block;min-width:26px;text-align:center;font-family:'Orbitron',sans-serif;font-weight:800;padding:3px 7px;border-radius:5px}
+.res.W{color:var(--g);text-shadow:var(--glowg);border:1px solid rgba(57,255,136,.45);background:rgba(57,255,136,.06)}
+.res.L{color:var(--r);text-shadow:var(--glowr);border:1px solid rgba(255,59,92,.45);background:rgba(255,59,92,.06)}
+.res.P{color:var(--a);border:1px solid rgba(255,210,63,.4)}
+.pick{font-weight:700;color:var(--g);text-shadow:var(--glowg);font-size:14px}
+.pips{letter-spacing:2px;color:var(--a);text-shadow:var(--glowa)}
+tr.pass td{opacity:.45}
+.bar{position:relative;width:120px;height:10px;background:#0c1512;border-radius:3px;display:inline-block;vertical-align:middle}
+.bar i{position:absolute;top:0;height:10px;border-radius:2px}
+.bar::before{content:"";position:absolute;left:50%;top:-2px;bottom:-2px;width:1px;background:var(--dim)}
+.legend{display:flex;gap:18px;flex-wrap:wrap;padding:12px 16px;color:var(--mut);font-size:11px;border-top:1px solid var(--line)}
+.empty{padding:40px;text-align:center;color:var(--mut)}
+.chartbox{padding:14px 16px 4px;position:relative}
+#tip{position:fixed;pointer-events:none;background:#071014;border:1px solid var(--line2);border-radius:6px;padding:7px 10px;font-size:11.5px;display:none;z-index:9;box-shadow:0 0 14px rgba(0,0,0,.8)}
+.hidden{display:none}
+.filters{display:flex;gap:12px;align-items:center;color:var(--mut);font-size:11.5px}
+.foot2{color:var(--dim);font-size:10.5px;margin-top:14px;line-height:1.6}
+@media(max-width:900px){.kpis{grid-template-columns:repeat(2,1fr)}}
+</style>
+<style id="clean-theme">
+/* Clean "trading app" theme: black, flat, readable */
+:root{
+  --bg:#000; --panel:#0a0a0b; --panel2:#111213; --line:#1b1d1e; --line2:#26292b;
+  --ink:#f2f4f3; --mut:#8a918e; --dim:#555b58;
+  --g:#00c805; --r:#ff5000; --a:#f5b400; --c:#f2f4f3;
+}
+*{text-shadow:none !important}
+html,body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'SF Pro Text','Segoe UI',system-ui,sans-serif;font-size:13.5px;-webkit-font-smoothing:antialiased;font-feature-settings:"tnum" 1,"cv11" 1}
+body{background:#000 !important}
+td,th,.kpi .val,.sp .u,.n{font-variant-numeric:tabular-nums}
+h1{font-family:inherit !important;font-weight:700;letter-spacing:-.01em !important;font-size:22px !important;color:var(--ink) !important}
+h1::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--g);margin-right:10px;vertical-align:middle;position:relative;top:-2px}
+.sub{color:var(--mut);font-size:12px;letter-spacing:0}
+.btn,select,.srch,.pill{border-radius:8px !important;font-family:inherit !important}
+.btn{color:var(--ink) !important;background:var(--panel2) !important;border-color:var(--line2) !important}
+.btn:hover{border-color:var(--mut) !important;box-shadow:none !important}
+.kpi{background:var(--panel) !important;border-color:var(--line) !important;border-radius:12px !important;padding:16px 18px !important}
+.kpi::after{display:none}
+.kpi .lbl{font-size:11.5px !important;letter-spacing:.02em !important;text-transform:none !important;color:var(--mut) !important;font-weight:500}
+.kpi .val{font-family:inherit !important;font-weight:700 !important;font-size:30px !important;letter-spacing:-.02em;margin-top:6px !important}
+.kpi .foot{font-size:11.5px !important}
+.kpi .val.cy,.kpi .val.amb{color:var(--ink) !important}
+.pos{color:var(--g) !important} .neg{color:var(--r) !important}
+.cy{color:var(--ink) !important} .amb{color:var(--a) !important}
+nav{border-bottom-color:var(--line) !important}
+nav button{font-family:inherit !important;font-size:13.5px !important;letter-spacing:0 !important;text-transform:none !important;font-weight:500;padding:12px 16px !important}
+nav button.on{color:var(--ink) !important;border-bottom-color:var(--g) !important}
+.panel{background:var(--panel) !important;border-color:var(--line) !important;border-radius:12px !important}
+.ph{border-bottom-color:var(--line) !important}
+.ph h2{font-family:inherit !important;font-size:13px !important;letter-spacing:.04em !important;color:var(--ink) !important;font-weight:600}
+th{background:var(--panel) !important;color:var(--mut) !important;font-size:11px !important;letter-spacing:.04em !important;font-weight:500 !important;border-bottom-color:var(--line) !important}
+td{border-bottom-color:#141617 !important;padding:10px 12px !important}
+tr:hover td{background:#0f1011 !important}
+.team{font-weight:600;letter-spacing:0 !important}
+.pick{color:var(--g) !important;font-weight:600 !important;font-size:13.5px !important}
+.pips{color:var(--g) !important;letter-spacing:1px}
+.chip{border-radius:6px !important;font-size:11px !important;padding:2px 7px !important;letter-spacing:0 !important}
+.chip.ride{color:#7cc4ff !important;border-color:#24425a !important;background:#0b1620}
+.chip.fade{color:var(--r) !important;border-color:#4a2112 !important;background:#170b06}
+.chip.buy{color:var(--g) !important;border-color:#0f3d12 !important;background:#061206}
+.chip.fair{color:var(--mut) !important;border-color:var(--line2) !important}
+.res{font-family:inherit !important;font-weight:700 !important;border-radius:6px !important;font-size:12px}
+.res.W{color:#000 !important;background:var(--g) !important;border-color:var(--g) !important}
+.res.L{color:#000 !important;background:var(--r) !important;border-color:var(--r) !important}
+.res.P{color:#000 !important;background:var(--a) !important;border-color:var(--a) !important}
+.bar{background:#151718 !important}
+.bar i{box-shadow:none !important}
+polyline{filter:none !important}
+.legend{color:var(--mut) !important;border-top-color:var(--line) !important}
+.foot2{color:var(--dim) !important}
+.sp{background:var(--panel) !important;border-color:var(--line) !important;border-radius:12px !important}
+.sp .nm{font-family:inherit !important;font-size:12px !important;letter-spacing:.02em !important;color:var(--ink) !important;font-weight:600}
+.sp .u{font-family:inherit !important;font-weight:700 !important;font-size:22px !important;letter-spacing:-.01em}
+.pill.on{color:#000 !important;background:var(--g) !important;border-color:var(--g) !important;font-weight:600}
+.tag{border-radius:5px !important}
+#tip{background:#111213 !important;border-color:var(--line2) !important;border-radius:8px !important;font-family:inherit}
+.err{color:var(--r) !important}
+.sp .nm a{font-family:inherit !important;font-weight:500}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>NFL ATS // REVERSION MODEL</h1>
+      <div class="sub" id="sub"></div>
+    </div>
+    <div class="datebar">
+      <button class="btn" id="prev" title="Previous week">&#9664;</button>
+      <select id="dateSel"></select>
+      <button class="btn" id="next" title="Next week">&#9654;</button>
+      <button class="btn" id="todayBtn">THIS WEEK</button>
+    </div>
+  </header>
+
+  <section class="kpis" id="kpis"></section>
+
+  <nav>
+    <button data-t="card" class="on">This Week's Card</button>
+    <button data-t="ratings">Team Ratings</button>
+    <button data-t="daily">Weekly Results</button>
+    <button data-t="log">Season Log</button>
+  </nav>
+
+  <section id="t-card"></section>
+  <section id="t-ratings" class="hidden"></section>
+  <section id="t-daily" class="hidden"></section>
+  <section id="t-log" class="hidden"></section>
+
+  <div class="foot2" id="foot"></div>
+</div>
+<div id="tip"></div>
+
+<script>
+const D = /*__DATA__*/null;
+const $ = s => document.querySelector(s);
+const fmt = (x, d=1) => (x===null||x===undefined||isNaN(x)) ? '—' : (+x).toFixed(d);
+const sgn = (x, d=1) => (x===null||x===undefined||isNaN(x)) ? '—' : (x>0?'+':'')+(+x).toFixed(d);
+const cls = x => x>0?'pos':x<0?'neg':'mut';
+const line = x => x===null||x===undefined ? '—' : (x===0 ? 'PK' : (x>0?'+':'')+x);
+const dlabel = d => { const t=new Date(d+'T12:00:00'); return t.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'}); };
+const chipCls = s => !s?'fair': s.startsWith('Too')?'early': s.includes('RIDE')?'ride': s.includes('FADE')?'fade': s.includes('BUY')?'buy':'fair';
+const shortStance = s => !s?'':s.startsWith('Too')?'too early':s.includes('Misjudged')?(s.includes('RIDE')?'misjudged ▲ ride':'misjudged ▼ fade'):s.includes('FADE')?'hot ▸ fade':s.includes('BUY')?'cold ▸ buy':'fair';
+
+const dates = [...new Set(D.games.map(g=>g.week))].sort((a,b)=>a-b);
+let cur = D.open_week;
+const wl = w => D.week_labels[String(w)] || ('Week '+w);
+const gd = d => { const t=new Date(d+'T12:00:00'); return t.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'}); };
+let logTeam = 'ALL', logBetsOnly = false, rSort = {k:'comb', dir:-1};
+
+function totals(upTo){
+  let w=0,l=0,p=0,risk=0,pl=0,pend=0;
+  for(const g of D.games){ if(!g.pick || g.week>upTo) continue;
+    if(g.result==='W'){w++;risk+=g.units;pl+=g.pl}
+    else if(g.result==='L'){l++;risk+=g.units;pl+=g.pl}
+    else if(g.result==='P'){p++}
+    else pend++; }
+  return {w,l,p,risk,pl,pend,roi: risk? 100*pl/risk : null};
+}
+
+function renderKpis(){
+  const t = totals(cur);
+  const day = D.games.filter(g=>g.week===cur && g.pick);
+  const dayU = day.reduce((a,g)=>a+g.units,0);
+  const dayPL = day.reduce((a,g)=>a+(g.pl||0),0);
+  const dayDone = day.filter(g=>g.result).length;
+  const k = (lbl,val,foot,c,kc)=>`<div class="kpi" style="--kc:${kc||'var(--g)'}"><div class="lbl">${lbl}</div><div class="val ${c}">${val}</div><div class="foot">${foot}</div></div>`;
+  $('#kpis').innerHTML =
+    k('Record ATS', `${t.w}-${t.l}${t.p?'-'+t.p:''}`, `win rate ${t.w+t.l? (100*t.w/(t.w+t.l)).toFixed(1)+'%':'—'} · break-even 52.4%`, t.w>t.l?'pos':t.w<t.l?'neg':'cy', t.w>=t.l?'var(--g)':'var(--r)') +
+    k('Units won / lost', sgn(t.pl,2)+'u', `through Week ${cur}`, cls(t.pl), t.pl>=0?'var(--g)':'var(--r)') +
+    k('ROI', t.roi===null?'—':sgn(t.roi,1)+'%', `on ${fmt(t.risk,1)}u risked at ${D.config.JUICE}`, cls(t.roi||0), (t.roi||0)>=0?'var(--g)':'var(--r)') +
+    k('Bets placed', t.w+t.l+t.p+t.pend, `${t.pend} pending`, 'cy', 'var(--c)') +
+    k(cur===D.open_week?"This week's card":'Week '+cur+' card', `${day.length} · ${fmt(dayU,1)}u`, dayDone? `graded ${dayDone}/${day.length}: <span class="${cls(dayPL)}">${sgn(dayPL,2)}u</span>` : 'nothing graded yet', 'amb', 'var(--a)');
+}
+
+function renderCard(){
+  const day = D.games.filter(g=>g.week===cur);
+  if(!day.length){ $('#t-card').innerHTML = `<div class="panel"><div class="empty">No games in Week ${cur}.</div></div>`; return; }
+  const anyOpen = day.some(g=>g.status!=='final');
+  const rows = day.map(g=>{
+    const hl = g.home_line;
+    const fav = hl===null? '—' : hl<0 ? `${g.home} ${hl}` : hl>0 ? `${g.away} ${-hl}` : 'PK';
+    const score = g.status==='final' ? (g.away_score!==null && g.away_score!==undefined ? `${g.away_score}-${g.home_score}` : `${g.home} ${sgn(g.home_margin,0)}`) : g.status==='live' ? '<span class="amb">LIVE</span>' : g.status==='ppd'?'PPD':(g.time||'');
+    const res = g.pick ? (g.result ? `<span class="res ${g.result}">${g.result}</span> <span class="${cls(g.pl)}">${sgn(g.pl,2)}u</span>` : '<span class="mut">pending</span>') : (g.cover? `<span class="dim">cvr ${g.cover}</span>`:'');
+    const pips = g.units ? '●'.repeat(Math.round(g.units)) + '<span class="dim">' + '●'.repeat(Math.max(0,3-Math.round(g.units))) + '</span>' : '';
+    return `<tr class="${g.pick?'':'pass'}">
+      <td class="mut">${g.status==='pre'?(g.time||gd(g.date)):score}</td>
+      <td><span class="team">${g.away}</span> <span class="dim">@</span> <span class="team">${g.home}</span>${g.neutral?' <span class="dim">(N)</span>':''}</td>
+      <td>${fav}</td>
+      <td><span class="chip ${chipCls(g.away_stance)}">${g.away} · ${shortStance(g.away_stance)}</span></td>
+      <td><span class="chip ${chipCls(g.home_stance)}">${g.home} · ${shortStance(g.home_stance)}</span></td>
+      <td class="n ${g.signal>0?'cy':''}">${sgn(g.signal,2)}</td>
+      <td>${g.pick?`<span class="pick">${g.pick} ${line(g.pick_line)}</span>`:'<span class="dim">PASS</span>'}</td>
+      <td><span class="pips">${pips}</span> ${g.units?fmt(g.units,1)+'u':''}</td>
+      <td>${res}</td></tr>`; }).join('');
+  $('#t-card').innerHTML = `<div class="panel"><div class="ph"><h2>${wl(cur).toUpperCase()} · MATCHUPS</h2>
+    <span class="note">Lines: ${anyOpen?'current number for games not yet played (re-run before betting)':'closing number'} · bet side shown with its own spread</span></div>
+    <table><thead><tr><th>Kickoff / Final</th><th>Matchup</th><th>Spread</th><th>Away team read</th><th>Home team read</th><th class="n">Signal</th><th>Bet</th><th>Units</th><th>Result</th></tr></thead><tbody>${rows}</tbody></table>
+    <div class="legend"><span><b class="cy">Signal</b> &gt; 0 leans home, &lt; 0 leans away</span><span>Units: |signal| ≥ ${D.config.UNIT_TIERS.map(t=>t[0]+' → '+t[1]+'u').reverse().join(', ')}</span><span><span class="chip buy">cold ▸ buy</span> <span class="chip fade">hot ▸ fade</span> <span class="chip ride">misjudged ▸ ride</span></span></div></div>`;
+}
+
+function renderRatings(){
+  const snap = (D.snapshots[String(cur)] || D.snapshots.latest).slice();
+  const label = D.snapshots[String(cur)] ? `entering Week ${cur} (earlier weeks only)` : 'after latest games';
+  const k=rSort.k, dir=rSort.dir;
+  snap.sort((a,b)=>{ const x=a[k], y=b[k]; if(x===null) return 1; if(y===null) return -1; return typeof x==='string'? dir*x.localeCompare(y) : dir*(x-y); });
+  const maxE = 8;
+  const bar = e => { if(e===null) return ''; const w=Math.min(Math.abs(e)/maxE,1)*60; const c = e>0?'var(--g)':'var(--r)';
+    return `<span class="bar"><i style="${e>0?'left:60px':'left:'+(60-w)+'px'};width:${w}px;background:${c};box-shadow:0 0 8px ${c}"></i></span>`; };
+  const rows = snap.map((t,i)=>`<tr>
+    <td class="n dim">${i+1}</td><td class="team">${t.team}</td><td class="n">${t.gp}</td>
+    <td class="n">${t.w}-${t.l}${t.p?'-'+t.p:''}</td>
+    <td class="n ${t.cover===null?'':t.cover>.5?'pos':t.cover<.5?'neg':''}">${t.cover===null?'—':(100*t.cover).toFixed(1)+'%'}</td>
+    <td class="n ${cls(t.err)}">${sgn(t.err,1)}</td><td>${bar(t.err)}</td>
+    <td class="n ${cls(t.recent)}">${sgn(t.recent,1)}</td>
+    <td class="n">${sgn(t.zc,2)}</td><td class="n">${sgn(t.ze,2)}</td>
+    <td class="n ${cls(t.comb)}"><b>${sgn(t.comb,2)}</b></td>
+    <td><span class="chip ${chipCls(t.stance)}">${t.stance}</span></td>
+    <td class="n ${cls(t.contrib)}">${sgn(t.contrib,2)}</td></tr>`).join('');
+  const th = (k,l,n)=>`<th class="sort ${n?'n':''}" data-k="${k}">${l}${rSort.k===k?(rSort.dir>0?' ▲':' ▼'):''}</th>`;
+  $('#t-ratings').innerHTML = `<div class="panel"><div class="ph"><h2>TEAM RATINGS · ${label.toUpperCase()}</h2>
+    <span class="note">ATS margin SD used: ${D.sd} pts · click headers to sort</span></div>
+    <table><thead><tr><th class="n">#</th>${th('team','Team')}${th('gp','GP',1)}<th class="n">ATS</th>${th('cover','Cover %',1)}${th('err','Vegas error',1)}<th>under ◂ ▸ over</th>${th('recent','Last '+D.config.RECENT_N+' err',1)}${th('zc','z cover',1)}${th('ze','z error',1)}${th('comb','Combined',1)}${th('stance','Model read')}${th('contrib','Lean',1)}</tr></thead><tbody>${rows}</tbody></table>
+    <div class="legend"><span><b>Vegas error</b> = avg (margin + spread) from the team's side. +2.0 = beat the number by 2 pts a game (Vegas has <i>under</i>rated them)</span>
+    <span><b>z</b> = how unusual vs. coin-flip luck · <b>Combined</b> = avg of z cover & z error</span>
+    <span><b>Lean</b> = team's push on a bet: − means bet against, + means bet on</span></div></div>`;
+  document.querySelectorAll('#t-ratings th.sort').forEach(h=>h.onclick=()=>{ const kk=h.dataset.k; rSort = {k:kk, dir: rSort.k===kk? -rSort.dir : (kk==='team'||kk==='stance'?1:-1)}; renderRatings(); });
+}
+
+function renderDaily(){
+  const rows = D.weekly.filter(r=>r.week<=cur);
+  if(!rows.length){ $('#t-daily').innerHTML = `<div class="panel"><div class="empty">No bets yet. The model needs ${D.config.MIN_GAMES} games per team before it fires.</div></div>`; return; }
+  // chart: cumulative units, one series, 2px line, crosshair tooltip
+  const W=1180,H=220,P={l:46,r:16,t:16,b:26};
+  const ys=rows.map(r=>r.cum), lo=Math.min(0,...ys), hi=Math.max(0,...ys), pad=(hi-lo)*.12||1;
+  const y0=lo-pad, y1=hi+pad, X=i=>P.l+(rows.length===1?0:i*(W-P.l-P.r)/(rows.length-1)), Y=v=>P.t+(y1-v)*(H-P.t-P.b)/(y1-y0);
+  const pts=rows.map((r,i)=>`${X(i)},${Y(r.cum)}`).join(' ');
+  const last=rows[rows.length-1].cum, col=last>=0?'#00c805':'#ff5000';
+  const ticks=[]; const step=Math.max(1,Math.ceil((y1-y0)/5)); for(let v=Math.ceil(y0/step)*step; v<=y1; v+=step) ticks.push(v);
+  const svg = `<svg viewBox="0 0 ${W} ${H}" width="100%" style="display:block" id="cumsvg">
+    ${ticks.map(v=>`<line x1="${P.l}" x2="${W-P.r}" y1="${Y(v)}" y2="${Y(v)}" stroke="${v===0?'#3a4a43':'#101b17'}" stroke-width="1"/><text x="${P.l-8}" y="${Y(v)+4}" fill="#5f716a" font-size="10" text-anchor="end">${v>0?'+':''}${v}u</text>`).join('')}
+    <text x="${P.l}" y="${H-6}" fill="#5f716a" font-size="10">Week ${rows[0].week}</text>
+    <text x="${W-P.r}" y="${H-6}" fill="#5f716a" font-size="10" text-anchor="end">Week ${rows[rows.length-1].week}</text>
+    <polyline points="${pts}" fill="none" stroke="${col}" stroke-width="2" stroke-linejoin="round" style="filter:drop-shadow(0 0 5px ${col})"/>
+    <line id="xh" y1="${P.t}" y2="${H-P.b}" stroke="#8a918e" stroke-width="1" opacity="0"/>
+    <circle id="xd" r="4.5" fill="#000" stroke="${col}" stroke-width="2" opacity="0"/>
+    <rect x="${P.l}" y="${P.t}" width="${W-P.l-P.r}" height="${H-P.t-P.b}" fill="transparent" id="hit"/></svg>`;
+  const body = rows.slice().reverse().map(r=>`<tr>
+    <td>${wl(r.week)}</td><td class="n">${r.bets}</td>
+    <td class="n">${r.w}-${r.l}${r.p?'-'+r.p:''}${r.pending?` <span class="amb">(${r.pending} pend)</span>`:''}</td>
+    <td class="n">${fmt(r.risked,1)}u</td>
+    <td class="n ${cls(r.pl)}"><b>${sgn(r.pl,2)}u</b></td>
+    <td class="n ${cls(r.cum)}">${sgn(r.cum,2)}u</td>
+    <td class="n ${cls(r.cum_roi||0)}">${r.cum_roi===null?'—':sgn(r.cum_roi,1)+'%'}</td></tr>`).join('');
+  $('#t-daily').innerHTML = `<div class="panel"><div class="ph"><h2>CUMULATIVE UNITS</h2><span class="note">hover for each week</span></div><div class="chartbox">${svg}</div></div>
+    <div class="panel" style="margin-top:14px"><div class="ph"><h2>RESULTS BY WEEK</h2></div>
+    <table><thead><tr><th>Week</th><th class="n">Bets</th><th class="n">W-L</th><th class="n">Risked</th><th class="n">Units +/-</th><th class="n">Running</th><th class="n">Running ROI</th></tr></thead><tbody>${body}</tbody></table></div>`;
+  const svgEl=$('#cumsvg'), tip=$('#tip');
+  $('#hit').addEventListener('mousemove',e=>{ const b=svgEl.getBoundingClientRect(); const x=(e.clientX-b.left)*W/b.width;
+    let i=Math.round((x-P.l)/((W-P.l-P.r)/Math.max(1,rows.length-1))); i=Math.max(0,Math.min(rows.length-1,i)); const r=rows[i];
+    $('#xh').setAttribute('x1',X(i)); $('#xh').setAttribute('x2',X(i)); $('#xh').setAttribute('opacity',.6);
+    $('#xd').setAttribute('cx',X(i)); $('#xd').setAttribute('cy',Y(r.cum)); $('#xd').setAttribute('opacity',1);
+    tip.style.display='block'; tip.style.left=(e.clientX+14)+'px'; tip.style.top=(e.clientY-10)+'px';
+    tip.innerHTML=`<b>Week ${r.week}</b><br>${r.w}-${r.l} · week <span class="${cls(r.pl)}">${sgn(r.pl,2)}u</span><br>running <span class="${cls(r.cum)}">${sgn(r.cum,2)}u</span>`; });
+  $('#hit').addEventListener('mouseleave',()=>{ tip.style.display='none'; $('#xh').setAttribute('opacity',0); $('#xd').setAttribute('opacity',0); });
+}
+
+function renderLog(){
+  let gs = D.games.filter(g=>g.week<=cur);
+  if(logTeam!=='ALL') gs = gs.filter(g=>g.home===logTeam||g.away===logTeam);
+  if(logBetsOnly) gs = gs.filter(g=>g.pick);
+  gs = gs.slice().reverse();
+  const opts = ['ALL',...[...new Set(D.games.flatMap(g=>[g.home,g.away]))].sort()].map(t=>`<option ${t===logTeam?'selected':''}>${t}</option>`).join('');
+  const body = gs.map(g=>{
+    const fin = g.status==='final' ? (g.away_score!==null&&g.away_score!==undefined? `${g.away_score}-${g.home_score}` : `${g.home} ${sgn(g.home_margin,0)}`) : g.status==='live'?'<span class="amb">LIVE</span>':(g.time||g.status);
+    return `<tr class="${g.pick?'':'pass'}"><td><span class="cy">W${g.week}</span> <span class="mut">${gd(g.date)}</span></td>
+      <td><span class="team">${g.away}</span> <span class="dim">@</span> <span class="team">${g.home}</span></td>
+      <td>${g.home} ${line(g.home_line)}</td><td class="n">${fin}</td>
+      <td>${g.cover? (g.cover==='PUSH'?'<span class="amb">PUSH</span>':`<b>${g.cover}</b>`) : '—'}</td>
+      <td>${g.pick?`<span class="pick" style="font-size:13px">${g.pick} ${line(g.pick_line)}</span>`:'<span class="dim">—</span>'}</td>
+      <td class="n">${g.units?fmt(g.units,1)+'u':''}</td>
+      <td class="c">${g.result?`<span class="res ${g.result}">${g.result}</span>`:(g.pick?'<span class="mut">…</span>':'')}</td>
+      <td class="n ${cls(g.pl)}">${g.pick&&g.result?sgn(g.pl,2)+'u':''}</td>
+      <td class="dim">${(g.src||'').replace('ESPN/','')}</td></tr>`; }).join('');
+  $('#t-log').innerHTML = `<div class="panel"><div class="ph"><h2>SEASON LOG · ${gs.length} GAMES</h2>
+    <div class="filters">Team <select id="logTeam">${opts}</select><label><input type="checkbox" id="logBets" ${logBetsOnly?'checked':''}> bets only</label></div></div>
+    <table><thead><tr><th>Week</th><th>Matchup</th><th>Spread</th><th class="n">Final</th><th>Covered</th><th>Our bet</th><th class="n">Units</th><th class="c">W/L</th><th class="n">P/L</th><th>Line src</th></tr></thead><tbody>${body}</tbody></table></div>`;
+  $('#logTeam').onchange=e=>{logTeam=e.target.value; renderLog();};
+  $('#logBets').onchange=e=>{logBetsOnly=e.target.checked; renderLog();};
+}
+
+function renderAll(){
+  $('#dateSel').value = String(cur);
+  renderKpis(); renderCard(); renderRatings(); renderDaily(); renderLog();
+}
+$('#sub').textContent = `Built ${D.generated} · ${D.games.filter(g=>g.status==='final').length} games graded · fade over/under-performers, ride confirmed outliers`;
+$('#dateSel').innerHTML = dates.map(d=>`<option value="${d}">${wl(d)}${d===D.open_week?' (current)':''}</option>`).join('');
+$('#dateSel').onchange = e=>{cur=+e.target.value; renderAll();};
+$('#prev').onclick=()=>{const i=dates.indexOf(cur); if(i>0){cur=dates[i-1]; renderAll();}};
+$('#next').onclick=()=>{const i=dates.indexOf(cur); if(i<dates.length-1){cur=dates[i+1]; renderAll();}};
+$('#todayBtn').onclick=()=>{cur = D.open_week; renderAll();};
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('nav button').forEach(x=>x.classList.toggle('on',x===b));
+  ['card','ratings','daily','log'].forEach(t=>$('#t-'+t).classList.toggle('hidden', t!==b.dataset.t)); });
+$('#foot').innerHTML = `Model settings: min ${D.config.MIN_GAMES} games · outlier |z error| ≥ ${D.config.Z_OUTLIER} with last-${D.config.RECENT_N} confirming ≥ ${D.config.RECENT_CONFIRM} pts · fade weight ${D.config.FADE_WEIGHT} · ride weight ${D.config.RIDE_WEIGHT} · priced at ${D.config.JUICE}. Every rating and bet uses only games from earlier weeks. For entertainment and research; not financial advice.`;
+renderAll();
+</script>
+</body>
+</html>
