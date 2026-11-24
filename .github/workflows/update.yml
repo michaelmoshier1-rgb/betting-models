@@ -1,8 +1,6 @@
 name: Update betting models
 
 on:
-  schedule:
-    - cron: "4,19,34,49 12-23,0-4 * * *"   # every 15 min, about 7:04am-11:49pm Eastern
   workflow_dispatch:
 
 permissions:
