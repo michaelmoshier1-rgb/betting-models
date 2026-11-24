@@ -2,7 +2,7 @@ name: Update betting models
 
 on:
   schedule:
-    - cron: "7 15,19,23 * * *"   # about 10:07am, 2:07pm, 6:07pm Eastern
+    - cron: "*/15 12-23,0-4 * * *"   # every 15 min, 7:00am-11:45pm Eastern   # about 10:07am, 2:07pm, 6:07pm Eastern
   workflow_dispatch:              # adds a "Run workflow" button for on-demand updates
 
 permissions:
