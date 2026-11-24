@@ -2562,7 +2562,7 @@
    "away": "NO",
    "home": "CIN",
    "status": "pre",
-   "home_line": -10.0,
+   "home_line": -9.5,
    "open_line": -6.5,
    "home_margin": null,
    "away_score": 0.0,
