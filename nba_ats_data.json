@@ -3644,7 +3644,7 @@
    "home_score": 0.0,
    "time": "7:00 PM",
    "neutral": false,
-   "src": "ESPN/Draft Kings",
+   "src": "ESPN/DraftKings",
    "espn_id": "401909314",
    "tip_iso": "2026-11-25T00:00Z"
   },
@@ -3660,7 +3660,7 @@
    "home_score": 0.0,
    "time": "8:00 PM",
    "neutral": false,
-   "src": "ESPN/Draft Kings",
+   "src": "ESPN/DraftKings",
    "espn_id": "401909315",
    "tip_iso": "2026-11-25T01:00Z"
   },
@@ -3676,7 +3676,7 @@
    "home_score": 0.0,
    "time": "10:00 PM",
    "neutral": false,
-   "src": "ESPN/Draft Kings",
+   "src": "ESPN/DraftKings",
    "espn_id": "401909316",
    "tip_iso": "2026-11-25T03:00Z"
   }
