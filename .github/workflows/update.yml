@@ -2,8 +2,8 @@ name: Update betting models
 
 on:
   schedule:
-    - cron: "*/15 12-23,0-4 * * *"   # every 15 min, 7:00am-11:45pm Eastern   # about 10:07am, 2:07pm, 6:07pm Eastern
-  workflow_dispatch:              # adds a "Run workflow" button for on-demand updates
+    - cron: "4,19,34,49 12-23,0-4 * * *"   # every 15 min, about 7:04am-11:49pm Eastern
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -26,7 +26,7 @@ jobs:
         env:
           TZ: America/New_York
         run: python run_all_models.py --no-open
-      - name: Save the downloaded game data (makes later runs fast)
+      - name: Save the downloaded game data
         run: |
           git config user.name "models-bot"
           git config user.email "models-bot@users.noreply.github.com"
