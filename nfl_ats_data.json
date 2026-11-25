@@ -2485,7 +2485,7 @@
    "time": "Wed 8:00 PM",
    "tip_iso": "2026-11-26T01:00Z",
    "neutral": false,
-   "src": "ESPN/Draft Kings",
+   "src": "ESPN/DraftKings",
    "espn_id": "401873079"
   },
   "2026-11-26_CHI_DET": {
@@ -2502,7 +2502,7 @@
    "time": "Thu 1:00 PM",
    "tip_iso": "2026-11-26T18:00Z",
    "neutral": false,
-   "src": "ESPN/Draft Kings",
+   "src": "ESPN/DraftKings",
    "espn_id": "401873081"
   },
   "2026-11-26_DAL_PHI": {
@@ -2519,7 +2519,7 @@
    "time": "Thu 4:30 PM",
    "tip_iso": "2026-11-26T21:30Z",
    "neutral": false,
-   "src": "ESPN/Draft Kings",
+   "src": "ESPN/DraftKings",
    "espn_id": "401873080"
   },
   "2026-11-26_BUF_KC": {
@@ -2536,7 +2536,7 @@
    "time": "Thu 8:20 PM",
    "tip_iso": "2026-11-27T01:20Z",
    "neutral": false,
-   "src": "ESPN/Draft Kings",
+   "src": "ESPN/DraftKings",
    "espn_id": "401873082"
   },
   "2026-11-27_DEN_PIT": {
@@ -2553,7 +2553,7 @@
    "time": "Fri 3:00 PM",
    "tip_iso": "2026-11-27T20:00Z",
    "neutral": false,
-   "src": "ESPN/Draft Kings",
+   "src": "ESPN/DraftKings",
    "espn_id": "401873083"
   },
   "2026-11-29_CIN_NO": {
@@ -2570,7 +2570,7 @@
    "time": "Sun 1:00 PM",
    "tip_iso": "2026-11-29T18:00Z",
    "neutral": false,
-   "src": "ESPN/Draft Kings",
+   "src": "ESPN/DraftKings",
    "espn_id": "401873087"
   },
   "2026-11-29_IND_NYG": {
@@ -2587,7 +2587,7 @@
    "time": "Sun 1:00 PM",
    "tip_iso": "2026-11-29T18:00Z",
    "neutral": false,
-   "src": "ESPN/Draft Kings",
+   "src": "ESPN/DraftKings",
    "espn_id": "401873088"
   },
   "2026-11-29_MIA_NYJ": {
@@ -2604,7 +2604,7 @@
    "time": "Sun 1:00 PM",
    "tip_iso": "2026-11-29T18:00Z",
    "neutral": false,
-   "src": "ESPN/Draft Kings",
+   "src": "ESPN/DraftKings",
    "espn_id": "401873089"
   },
   "2026-11-29_ATL_MIN": {
@@ -2621,7 +2621,7 @@
    "time": "Sun 1:00 PM",
    "tip_iso": "2026-11-29T18:00Z",
    "neutral": false,
-   "src": "ESPN/Draft Kings",
+   "src": "ESPN/DraftKings",
    "espn_id": "401873084"
   },
   "2026-11-29_JAX_TEN": {
@@ -2638,7 +2638,7 @@
    "time": "Sun 1:00 PM",
    "tip_iso": "2026-11-29T18:00Z",
    "neutral": false,
-   "src": "ESPN/Draft Kings",
+   "src": "ESPN/DraftKings",
    "espn_id": "401873090"
   },
   "2026-11-29_BAL_HOU": {
@@ -2655,7 +2655,7 @@
    "time": "Sun 1:00 PM",
    "tip_iso": "2026-11-29T18:00Z",
    "neutral": false,
-   "src": "ESPN/Draft Kings",
+   "src": "ESPN/DraftKings",
    "espn_id": "401873085"
   },
   "2026-11-29_LAC_NE": {
@@ -2672,7 +2672,7 @@
    "time": "Sun 4:05 PM",
    "tip_iso": "2026-11-29T21:05Z",
    "neutral": false,
-   "src": "ESPN/Draft Kings",
+   "src": "ESPN/DraftKings",
    "espn_id": "401873093"
   },
   "2026-11-29_ARI_WSH": {
@@ -2689,7 +2689,7 @@
    "time": "Sun 4:25 PM",
    "tip_iso": "2026-11-29T21:25Z",
    "neutral": false,
-   "src": "ESPN/Draft Kings",
+   "src": "ESPN/DraftKings",
    "espn_id": "401873092"
   },
   "2026-11-29_SEA_SF": {
@@ -2706,7 +2706,7 @@
    "time": "Sun 4:25 PM",
    "tip_iso": "2026-11-29T21:25Z",
    "neutral": false,
-   "src": "ESPN/Draft Kings",
+   "src": "ESPN/DraftKings",
    "espn_id": "401873091"
   },
   "2026-11-29_CLE_LV": {
@@ -2723,7 +2723,7 @@
    "time": "Sun 8:20 PM",
    "tip_iso": "2026-11-30T01:20Z",
    "neutral": false,
-   "src": "ESPN/Draft Kings",
+   "src": "ESPN/DraftKings",
    "espn_id": "401873086"
   },
   "2026-11-30_CAR_TB": {
@@ -2740,8 +2740,246 @@
    "time": "Mon 8:15 PM",
    "tip_iso": "2026-12-01T01:15Z",
    "neutral": false,
-   "src": "ESPN/Draft Kings",
+   "src": "ESPN/DraftKings",
    "espn_id": "401873094"
+  },
+  "2026-12-03_KC_LAR": {
+   "date": "2026-12-03",
+   "week": 13,
+   "away": "KC",
+   "home": "LAR",
+   "status": "pre",
+   "home_line": -1.5,
+   "open_line": -3.5,
+   "home_margin": null,
+   "away_score": 0.0,
+   "home_score": 0.0,
+   "time": "Thu 8:15 PM",
+   "tip_iso": "2026-12-04T01:15Z",
+   "neutral": false,
+   "src": "ESPN/DraftKings",
+   "espn_id": "401873096"
+  },
+  "2026-12-06_ATL_DET": {
+   "date": "2026-12-06",
+   "week": 13,
+   "away": "DET",
+   "home": "ATL",
+   "status": "pre",
+   "home_line": 3.5,
+   "open_line": 3.5,
+   "home_margin": null,
+   "away_score": 0.0,
+   "home_score": 0.0,
+   "time": "Sun 1:00 PM",
+   "tip_iso": "2026-12-06T18:00Z",
+   "neutral": false,
+   "src": "ESPN/DraftKings",
+   "espn_id": "401873098"
+  },
+  "2026-12-06_CHI_JAX": {
+   "date": "2026-12-06",
+   "week": 13,
+   "away": "JAX",
+   "home": "CHI",
+   "status": "pre",
+   "home_line": -3.0,
+   "open_line": -2.5,
+   "home_margin": null,
+   "away_score": 0.0,
+   "home_score": 0.0,
+   "time": "Sun 1:00 PM",
+   "tip_iso": "2026-12-06T18:00Z",
+   "neutral": false,
+   "src": "ESPN/DraftKings",
+   "espn_id": "401873100"
+  },
+  "2026-12-06_CIN_CLE": {
+   "date": "2026-12-06",
+   "week": 13,
+   "away": "CIN",
+   "home": "CLE",
+   "status": "pre",
+   "home_line": 6.0,
+   "open_line": 4.5,
+   "home_margin": null,
+   "away_score": 0.0,
+   "home_score": 0.0,
+   "time": "Sun 1:00 PM",
+   "tip_iso": "2026-12-06T18:00Z",
+   "neutral": false,
+   "src": "ESPN/DraftKings",
+   "espn_id": "401873097"
+  },
+  "2026-12-06_TEN_WSH": {
+   "date": "2026-12-06",
+   "week": 13,
+   "away": "WSH",
+   "home": "TEN",
+   "status": "pre",
+   "home_line": 4.5,
+   "open_line": 1.5,
+   "home_margin": null,
+   "away_score": 0.0,
+   "home_score": 0.0,
+   "time": "Sun 1:00 PM",
+   "tip_iso": "2026-12-06T18:00Z",
+   "neutral": false,
+   "src": "ESPN/DraftKings",
+   "espn_id": "401873102"
+  },
+  "2026-12-06_GB_NO": {
+   "date": "2026-12-06",
+   "week": 13,
+   "away": "GB",
+   "home": "NO",
+   "status": "pre",
+   "home_line": 5.5,
+   "open_line": 4.5,
+   "home_margin": null,
+   "away_score": 0.0,
+   "home_score": 0.0,
+   "time": "Sun 1:00 PM",
+   "tip_iso": "2026-12-06T18:00Z",
+   "neutral": false,
+   "src": "ESPN/DraftKings",
+   "espn_id": "401873099"
+  },
+  "2026-12-06_NYG_SF": {
+   "date": "2026-12-06",
+   "week": 13,
+   "away": "SF",
+   "home": "NYG",
+   "status": "pre",
+   "home_line": 6.5,
+   "open_line": 3.0,
+   "home_margin": null,
+   "away_score": 0.0,
+   "home_score": 0.0,
+   "time": "Sun 1:00 PM",
+   "tip_iso": "2026-12-06T18:00Z",
+   "neutral": false,
+   "src": "ESPN/DraftKings",
+   "espn_id": "401873095"
+  },
+  "2026-12-06_LAC_TB": {
+   "date": "2026-12-06",
+   "week": 13,
+   "away": "LAC",
+   "home": "TB",
+   "status": "pre",
+   "home_line": -5.5,
+   "open_line": 1.5,
+   "home_margin": null,
+   "away_score": 0.0,
+   "home_score": 0.0,
+   "time": "Sun 1:00 PM",
+   "tip_iso": "2026-12-06T18:00Z",
+   "neutral": false,
+   "src": "ESPN/DraftKings",
+   "espn_id": "401873101"
+  },
+  "2026-12-06_DEN_MIA": {
+   "date": "2026-12-06",
+   "week": 13,
+   "away": "MIA",
+   "home": "DEN",
+   "status": "pre",
+   "home_line": -14.5,
+   "open_line": -9.5,
+   "home_margin": null,
+   "away_score": 0.0,
+   "home_score": 0.0,
+   "time": "Sun 4:05 PM",
+   "tip_iso": "2026-12-06T21:05Z",
+   "neutral": false,
+   "src": "ESPN/DraftKings",
+   "espn_id": "401873103"
+  },
+  "2026-12-06_ARI_PHI": {
+   "date": "2026-12-06",
+   "week": 13,
+   "away": "PHI",
+   "home": "ARI",
+   "status": "pre",
+   "home_line": 3.0,
+   "open_line": 8.5,
+   "home_margin": null,
+   "away_score": 0.0,
+   "home_score": 0.0,
+   "time": "Sun 4:05 PM",
+   "tip_iso": "2026-12-06T21:05Z",
+   "neutral": false,
+   "src": "ESPN/DraftKings",
+   "espn_id": "401873104"
+  },
+  "2026-12-06_CAR_MIN": {
+   "date": "2026-12-06",
+   "week": 13,
+   "away": "CAR",
+   "home": "MIN",
+   "status": "pre",
+   "home_line": -5.5,
+   "open_line": -3.5,
+   "home_margin": null,
+   "away_score": 0.0,
+   "home_score": 0.0,
+   "time": "Sun 4:25 PM",
+   "tip_iso": "2026-12-06T21:25Z",
+   "neutral": false,
+   "src": "ESPN/DraftKings",
+   "espn_id": "401873106"
+  },
+  "2026-12-06_BUF_NE": {
+   "date": "2026-12-06",
+   "week": 13,
+   "away": "BUF",
+   "home": "NE",
+   "status": "pre",
+   "home_line": 12.5,
+   "open_line": -1.5,
+   "home_margin": null,
+   "away_score": 0.0,
+   "home_score": 0.0,
+   "time": "Sun 4:25 PM",
+   "tip_iso": "2026-12-06T21:25Z",
+   "neutral": false,
+   "src": "ESPN/DraftKings",
+   "espn_id": "401873105"
+  },
+  "2026-12-06_HOU_PIT": {
+   "date": "2026-12-06",
+   "week": 13,
+   "away": "HOU",
+   "home": "PIT",
+   "status": "pre",
+   "home_line": 3.5,
+   "open_line": 1.5,
+   "home_margin": null,
+   "away_score": 0.0,
+   "home_score": 0.0,
+   "time": "Sun 8:20 PM",
+   "tip_iso": "2026-12-07T01:20Z",
+   "neutral": false,
+   "src": "ESPN/DraftKings",
+   "espn_id": "401873107"
+  },
+  "2026-12-07_DAL_SEA": {
+   "date": "2026-12-07",
+   "week": 13,
+   "away": "DAL",
+   "home": "SEA",
+   "status": "pre",
+   "home_line": -6.0,
+   "open_line": -4.5,
+   "home_margin": null,
+   "away_score": 0.0,
+   "home_score": 0.0,
+   "time": "Mon 8:15 PM",
+   "tip_iso": "2026-12-08T01:15Z",
+   "neutral": false,
+   "src": "ESPN/DraftKings",
+   "espn_id": "401873108"
   }
  },
  "done_weeks": [
@@ -2754,6 +2992,7 @@
   7,
   8,
   9,
-  10
+  10,
+  11
  ]
 }
