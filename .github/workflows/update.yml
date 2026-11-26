@@ -28,7 +28,7 @@ jobs:
         run: |
           git config user.name "models-bot"
           git config user.email "models-bot@users.noreply.github.com"
-          git add *_data.json
+          git add *_data.json all_ledger.json
           git commit -m "Update game data" || echo "No data changes"
           git push
       - name: Prepare web page
