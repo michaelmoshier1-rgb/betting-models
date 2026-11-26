@@ -16987,17 +16987,18 @@
 "pick": "UCF -2.5",
 "line": "UCF -2.5",
 "units": 1.0,
-"result": null,
-"pl": 0.0,
-"status": "live",
+"result": "L",
+"pl": -1.0,
+"status": "final",
 "time": "1:30 PM",
 "signal": 1.482,
-"final": "",
+"final": "75-73",
 "current": true,
 "away_read": "Fairly priced",
 "home_read": "Fairly priced",
 "bettype": "Spread",
-"locked_at": "2026-11-26T01:00"
+"locked_at": "2026-11-26T01:00",
+"graded_at": "2026-11-26T16:15"
 },
 "cbb|2026-11-26|Tennessee|Iowa State": {
 "k": "cbb|2026-11-26|Tennessee|Iowa State",
@@ -17215,6 +17216,33 @@
 "bettype": "Spread",
 "locked_at": "2026-11-26T13:00",
 "graded_at": "2026-11-26T15:30"
+},
+"cbb|2026-11-26|USC|Utah State": {
+"k": "cbb|2026-11-26|USC|Utah State",
+"side": "home",
+"pick_line": -1.5,
+"price": null,
+"sport": "cbb",
+"date": "2026-11-26",
+"period": "2026-11-26",
+"period_label": "2026-11-26",
+"matchup": "USC @ Utah State",
+"away": "USC",
+"home": "Utah State",
+"pick": "Utah State -1.5",
+"line": "Utah State -1.5",
+"units": 2.0,
+"result": null,
+"pl": 0.0,
+"status": "pre",
+"time": "4:30 PM",
+"signal": 2.137,
+"final": "",
+"current": true,
+"away_read": "Fairly priced",
+"home_read": "Misjudged (underrated) - RIDE",
+"bettype": "Spread",
+"locked_at": "2026-11-26T16:15"
 }
 }
 }
