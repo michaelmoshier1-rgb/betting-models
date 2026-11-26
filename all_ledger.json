@@ -17185,6 +17185,33 @@
 "home_read": "Fairly priced",
 "bettype": "Spread",
 "locked_at": "2026-11-26T01:00"
+},
+"cbb|2026-11-26|Maryland|San Diego St": {
+"k": "cbb|2026-11-26|Maryland|San Diego St",
+"side": "away",
+"pick_line": -5.5,
+"price": null,
+"sport": "cbb",
+"date": "2026-11-26",
+"period": "2026-11-26",
+"period_label": "2026-11-26",
+"matchup": "Maryland @ San Diego St",
+"away": "Maryland",
+"home": "San Diego St",
+"pick": "Maryland -5.5",
+"line": "San Diego St +5.5",
+"units": 1.0,
+"result": null,
+"pl": 0.0,
+"status": "pre",
+"time": "1:00 PM",
+"signal": -1.125,
+"final": "",
+"current": true,
+"away_read": "Fairly priced",
+"home_read": "Fairly priced",
+"bettype": "Spread",
+"locked_at": "2026-11-26T13:00"
 }
 }
 }
