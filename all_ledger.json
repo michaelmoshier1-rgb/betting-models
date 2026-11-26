@@ -17203,17 +17203,18 @@
 "pick": "Maryland -5.5",
 "line": "San Diego St +5.5",
 "units": 1.0,
-"result": null,
-"pl": 0.0,
-"status": "live",
+"result": "L",
+"pl": -1.0,
+"status": "final",
 "time": "1:00 PM",
 "signal": -1.125,
-"final": "",
+"final": "71-75",
 "current": true,
 "away_read": "Fairly priced",
 "home_read": "Fairly priced",
 "bettype": "Spread",
-"locked_at": "2026-11-26T13:00"
+"locked_at": "2026-11-26T13:00",
+"graded_at": "2026-11-26T15:30"
 }
 }
 }
