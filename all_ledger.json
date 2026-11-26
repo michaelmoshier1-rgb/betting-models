@@ -8042,17 +8042,18 @@
 "pick": "Stanford +3.5",
 "line": "Saint Louis -3.5",
 "units": 1.0,
-"result": null,
-"pl": 0.0,
-"status": "live",
+"result": "W",
+"pl": 0.909,
+"status": "final",
 "time": "1:08 AM",
 "signal": -1.16,
-"final": "",
+"final": "64-66",
 "current": false,
 "away_read": "Overrated so far - BUY (reversion)",
 "home_read": "Fairly priced",
 "bettype": "Spread",
-"locked_at": "seeded 2026-11-25T21:46"
+"locked_at": "seeded 2026-11-25T21:46",
+"graded_at": "2026-11-26T03:15"
 },
 "cfb|2026-09-26|Lindenwood|E Michigan": {
 "k": "cfb|2026-09-26|Lindenwood|E Michigan",
