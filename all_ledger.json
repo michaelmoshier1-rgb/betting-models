@@ -17015,17 +17015,18 @@
 "pick": "Iowa State -2.5",
 "line": "Iowa State -2.5",
 "units": 1.0,
-"result": null,
-"pl": 0.0,
-"status": "live",
+"result": "L",
+"pl": -1.0,
+"status": "final",
 "time": "3:30 PM",
 "signal": 1.368,
-"final": "",
+"final": "75-64",
 "current": true,
 "away_read": "Fairly priced",
 "home_read": "Fairly priced",
 "bettype": "Spread",
-"locked_at": "2026-11-26T01:00"
+"locked_at": "2026-11-26T01:00",
+"graded_at": "2026-11-26T18:15"
 },
 "cbb|2026-11-26|Utah State|USC": {
 "k": "cbb|2026-11-26|Utah State|USC",
