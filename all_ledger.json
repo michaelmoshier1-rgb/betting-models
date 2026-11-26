@@ -16904,17 +16904,18 @@
 "pick": "Purdue -4.5",
 "line": "Purdue -4.5",
 "units": 2.0,
-"result": null,
-"pl": 0.0,
-"status": "live",
+"result": "L",
+"pl": -2.0,
+"status": "final",
 "time": "12:00 PM",
 "signal": 2.286,
-"final": "",
+"final": "70-63",
 "current": true,
 "away_read": "Misjudged (overrated) - FADE",
 "home_read": "Fairly priced",
 "bettype": "Spread",
-"locked_at": "2026-11-26T01:00"
+"locked_at": "2026-11-26T01:00",
+"graded_at": "2026-11-26T14:15"
 },
 "cbb|2026-11-26|Army|UTSA": {
 "k": "cbb|2026-11-26|Army|UTSA",
