@@ -18141,6 +18141,33 @@
 "home_read": "Fairly priced",
 "bettype": "Spread",
 "locked_at": "2026-11-27T11:45"
+},
+"cbb|2026-11-27|Iowa State|St John's": {
+"k": "cbb|2026-11-27|Iowa State|St John's",
+"side": "away",
+"pick_line": -1.5,
+"price": null,
+"sport": "cbb",
+"date": "2026-11-27",
+"period": "2026-11-27",
+"period_label": "2026-11-27",
+"matchup": "Iowa State @ St John's",
+"away": "Iowa State",
+"home": "St John's",
+"pick": "Iowa State -1.5",
+"line": "St John's +1.5",
+"units": 2.0,
+"result": null,
+"pl": 0.0,
+"status": "pre",
+"time": "1:00 PM",
+"signal": -2.254,
+"final": "",
+"current": true,
+"away_read": "Overrated so far - BUY (reversion)",
+"home_read": "Fairly priced",
+"bettype": "Spread",
+"locked_at": "2026-11-27T12:00"
 }
 }
 }
