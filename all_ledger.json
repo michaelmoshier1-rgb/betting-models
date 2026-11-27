@@ -17070,17 +17070,18 @@
 "pick": "Arkansas +5.5",
 "line": "Michigan St -5.5",
 "units": 1.0,
-"result": null,
-"pl": 0.0,
-"status": "live",
+"result": "W",
+"pl": 0.909,
+"status": "final",
 "time": "4:30 PM",
 "signal": -1.106,
-"final": "",
+"final": "67-70",
 "current": true,
 "away_read": "Fairly priced",
 "home_read": "Fairly priced",
 "bettype": "Spread",
-"locked_at": "2026-11-26T01:00"
+"locked_at": "2026-11-26T01:00",
+"graded_at": "2026-11-26T19:00"
 },
 "cbb|2026-11-26|DePaul|Pitt": {
 "k": "cbb|2026-11-26|DePaul|Pitt",
