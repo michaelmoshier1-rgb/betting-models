@@ -18033,6 +18033,33 @@
 "home_read": "Fairly priced",
 "bettype": "Moneyline",
 "locked_at": "2026-11-27T01:00"
+},
+"cbb|2026-11-27|TCU|Baylor": {
+"k": "cbb|2026-11-27|TCU|Baylor",
+"side": "away",
+"pick_line": 4.5,
+"price": null,
+"sport": "cbb",
+"date": "2026-11-27",
+"period": "2026-11-27",
+"period_label": "2026-11-27",
+"matchup": "TCU @ Baylor",
+"away": "TCU",
+"home": "Baylor",
+"pick": "TCU +4.5",
+"line": "Baylor -4.5",
+"units": 1.0,
+"result": null,
+"pl": 0.0,
+"status": "pre",
+"time": "3:00 PM",
+"signal": -1.183,
+"final": "",
+"current": true,
+"away_read": "Fairly priced",
+"home_read": "Underrated so far - FADE (reversion)",
+"bettype": "Spread",
+"locked_at": "2026-11-27T02:30"
 }
 }
 }
