@@ -17972,17 +17972,18 @@
 "pick": "UTA -118",
 "line": "UTA -118 / NSH -102",
 "units": 1.0,
-"result": null,
-"pl": 0.0,
-"status": "live",
+"result": "W",
+"pl": 0.847,
+"status": "final",
 "time": "1:00 PM",
 "signal": -1.622,
-"final": "",
+"final": "6-5 OT",
 "current": true,
 "away_read": "Fairly priced",
 "home_read": "Underrated so far - FADE (reversion)",
 "bettype": "Moneyline",
-"locked_at": "2026-11-27T01:00"
+"locked_at": "2026-11-27T01:00",
+"graded_at": "2026-11-27T16:00"
 },
 "nhl|2026-11-27|COL|MIN": {
 "k": "nhl|2026-11-27|COL|MIN",
