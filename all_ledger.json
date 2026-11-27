@@ -17234,17 +17234,18 @@
 "pick": "Utah State -1.5",
 "line": "Utah State -1.5",
 "units": 2.0,
-"result": null,
-"pl": 0.0,
-"status": "live",
+"result": "W",
+"pl": 1.818,
+"status": "final",
 "time": "4:30 PM",
 "signal": 2.137,
-"final": "",
+"final": "74-78",
 "current": true,
 "away_read": "Fairly priced",
 "home_read": "Misjudged (underrated) - RIDE",
 "bettype": "Spread",
-"locked_at": "2026-11-26T16:15"
+"locked_at": "2026-11-26T16:15",
+"graded_at": "2026-11-26T19:15"
 }
 }
 }
