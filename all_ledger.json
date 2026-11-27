@@ -18060,6 +18060,33 @@
 "home_read": "Underrated so far - FADE (reversion)",
 "bettype": "Spread",
 "locked_at": "2026-11-27T02:30"
+},
+"cbb|2026-11-27|Texas Tech|San Diego St": {
+"k": "cbb|2026-11-27|Texas Tech|San Diego St",
+"side": "away",
+"pick_line": -7.5,
+"price": null,
+"sport": "cbb",
+"date": "2026-11-27",
+"period": "2026-11-27",
+"period_label": "2026-11-27",
+"matchup": "Texas Tech @ San Diego St",
+"away": "Texas Tech",
+"home": "San Diego St",
+"pick": "Texas Tech -7.5",
+"line": "San Diego St +7.5",
+"units": 1.0,
+"result": null,
+"pl": 0.0,
+"status": "pre",
+"time": "11:30 PM",
+"signal": -1.089,
+"final": "",
+"current": true,
+"away_read": "Fairly priced",
+"home_read": "Fairly priced",
+"bettype": "Spread",
+"locked_at": "2026-11-27T08:30"
 }
 }
 }
