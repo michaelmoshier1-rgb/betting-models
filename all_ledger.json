@@ -18160,17 +18160,18 @@
 "pick": "Iowa State -1.5",
 "line": "St John's +1.5",
 "units": 2.0,
-"result": null,
-"pl": 0.0,
-"status": "live",
+"result": "L",
+"pl": -2.0,
+"status": "final",
 "time": "1:00 PM",
 "signal": -2.254,
-"final": "",
+"final": "75-80",
 "current": true,
 "away_read": "Overrated so far - BUY (reversion)",
 "home_read": "Fairly priced",
 "bettype": "Spread",
-"locked_at": "2026-11-27T12:00"
+"locked_at": "2026-11-27T12:00",
+"graded_at": "2026-11-27T15:30"
 },
 "cbb|2026-11-27|UMass Lowell|Hampton": {
 "k": "cbb|2026-11-27|UMass Lowell|Hampton",
