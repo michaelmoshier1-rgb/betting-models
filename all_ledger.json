@@ -18186,17 +18186,18 @@
 "pick": "Hampton -1.5",
 "line": "Hampton -1.5",
 "units": 2.0,
-"result": null,
-"pl": 0.0,
-"status": "live",
+"result": "L",
+"pl": -2.0,
+"status": "final",
 "time": "1:00 PM",
 "signal": 2.224,
-"final": "",
+"final": "72-55",
 "current": true,
 "away_read": "Underrated so far - FADE (reversion)",
 "home_read": "Fairly priced",
 "bettype": "Spread",
-"locked_at": "2026-11-27T12:45"
+"locked_at": "2026-11-27T12:45",
+"graded_at": "2026-11-27T15:00"
 },
 "cbb|2026-11-27|Memphis|Wake Forest": {
 "k": "cbb|2026-11-27|Memphis|Wake Forest",
