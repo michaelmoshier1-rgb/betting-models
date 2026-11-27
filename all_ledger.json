@@ -18114,6 +18114,33 @@
 "home_read": "Fairly priced",
 "bettype": "Spread",
 "locked_at": "2026-11-27T10:00"
+},
+"cbb|2026-11-27|St Thomas|Liberty": {
+"k": "cbb|2026-11-27|St Thomas|Liberty",
+"side": "home",
+"pick_line": 1.5,
+"price": null,
+"sport": "cbb",
+"date": "2026-11-27",
+"period": "2026-11-27",
+"period_label": "2026-11-27",
+"matchup": "St Thomas @ Liberty",
+"away": "St Thomas",
+"home": "Liberty",
+"pick": "Liberty +1.5",
+"line": "Liberty +1.5",
+"units": 1.0,
+"result": null,
+"pl": 0.0,
+"status": "pre",
+"time": "12:00 PM",
+"signal": 1.275,
+"final": "",
+"current": true,
+"away_read": "Fairly priced",
+"home_read": "Fairly priced",
+"bettype": "Spread",
+"locked_at": "2026-11-27T11:45"
 }
 }
 }
