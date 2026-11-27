@@ -18236,6 +18236,33 @@
 "bettype": "Spread",
 "locked_at": "2026-11-27T13:30",
 "graded_at": "2026-11-27T16:15"
+},
+"nfl|2026-12-06|HOU|PIT": {
+"k": "nfl|2026-12-06|HOU|PIT",
+"side": "away",
+"pick_line": -4.5,
+"price": null,
+"sport": "nfl",
+"date": "2026-12-06",
+"period": "13",
+"period_label": "Week 13 \u00b7 Dec 2\u2013Dec 8",
+"matchup": "HOU @ PIT",
+"away": "HOU",
+"home": "PIT",
+"pick": "HOU -4.5",
+"line": "PIT +4.5",
+"units": 1.0,
+"result": null,
+"pl": 0.0,
+"status": "pre",
+"time": "Sun 8:20 PM",
+"signal": -1.167,
+"final": "",
+"current": false,
+"away_read": "Fairly priced",
+"home_read": "Fairly priced",
+"bettype": "Spread",
+"locked_at": "2026-11-27T18:00"
 }
 }
 }
