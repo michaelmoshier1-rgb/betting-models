@@ -3528,17 +3528,18 @@
 "pick": "PHI +8.5",
 "line": "DAL -8.5",
 "units": 1.0,
-"result": null,
-"pl": 0.0,
-"status": "live",
+"result": "W",
+"pl": 0.909,
+"status": "final",
 "time": "Thu 4:30 PM",
 "signal": -1.445,
-"final": "",
+"final": "39-38",
 "current": true,
 "away_read": "Overrated so far - BUY (reversion)",
 "home_read": "Fairly priced",
 "bettype": "Spread",
-"locked_at": "seeded 2026-11-25T21:46"
+"locked_at": "seeded 2026-11-25T21:46",
+"graded_at": "2026-11-26T20:45"
 },
 "nfl|2026-11-29|ATL|MIN": {
 "k": "nfl|2026-11-29|ATL|MIN",
