@@ -18087,6 +18087,33 @@
 "home_read": "Fairly priced",
 "bettype": "Spread",
 "locked_at": "2026-11-27T08:30"
+},
+"cbb|2026-11-27|San Diego St|Texas Tech": {
+"k": "cbb|2026-11-27|San Diego St|Texas Tech",
+"side": "home",
+"pick_line": -7.5,
+"price": null,
+"sport": "cbb",
+"date": "2026-11-27",
+"period": "2026-11-27",
+"period_label": "2026-11-27",
+"matchup": "San Diego St @ Texas Tech",
+"away": "San Diego St",
+"home": "Texas Tech",
+"pick": "Texas Tech -7.5",
+"line": "Texas Tech -7.5",
+"units": 1.0,
+"result": null,
+"pl": 0.0,
+"status": "pre",
+"time": "11:30 PM",
+"signal": 1.089,
+"final": "",
+"current": true,
+"away_read": "Fairly priced",
+"home_read": "Fairly priced",
+"bettype": "Spread",
+"locked_at": "2026-11-27T10:00"
 }
 }
 }
