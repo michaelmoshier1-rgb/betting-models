@@ -18168,6 +18168,33 @@
 "home_read": "Fairly priced",
 "bettype": "Spread",
 "locked_at": "2026-11-27T12:00"
+},
+"cbb|2026-11-27|UMass Lowell|Hampton": {
+"k": "cbb|2026-11-27|UMass Lowell|Hampton",
+"side": "home",
+"pick_line": -1.5,
+"price": null,
+"sport": "cbb",
+"date": "2026-11-27",
+"period": "2026-11-27",
+"period_label": "2026-11-27",
+"matchup": "UMass Lowell @ Hampton",
+"away": "UMass Lowell",
+"home": "Hampton",
+"pick": "Hampton -1.5",
+"line": "Hampton -1.5",
+"units": 2.0,
+"result": null,
+"pl": 0.0,
+"status": "pre",
+"time": "1:00 PM",
+"signal": 2.224,
+"final": "",
+"current": true,
+"away_read": "Underrated so far - FADE (reversion)",
+"home_read": "Fairly priced",
+"bettype": "Spread",
+"locked_at": "2026-11-27T12:45"
 }
 }
 }
