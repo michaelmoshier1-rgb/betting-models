@@ -18196,6 +18196,33 @@
 "home_read": "Fairly priced",
 "bettype": "Spread",
 "locked_at": "2026-11-27T12:45"
+},
+"cbb|2026-11-27|Memphis|Wake Forest": {
+"k": "cbb|2026-11-27|Memphis|Wake Forest",
+"side": "home",
+"pick_line": -1.5,
+"price": null,
+"sport": "cbb",
+"date": "2026-11-27",
+"period": "2026-11-27",
+"period_label": "2026-11-27",
+"matchup": "Memphis @ Wake Forest",
+"away": "Memphis",
+"home": "Wake Forest",
+"pick": "Wake Forest -1.5",
+"line": "Wake Forest -1.5",
+"units": 1.0,
+"result": null,
+"pl": 0.0,
+"status": "pre",
+"time": "1:30 PM",
+"signal": 1.648,
+"final": "",
+"current": true,
+"away_read": "Underrated so far - FADE (reversion)",
+"home_read": "Fairly priced",
+"bettype": "Spread",
+"locked_at": "2026-11-27T13:30"
 }
 }
 }
