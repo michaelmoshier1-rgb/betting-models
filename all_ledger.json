@@ -17595,7 +17595,7 @@
 "units": 1.0,
 "result": null,
 "pl": 0.0,
-"status": "pre",
+"status": "live",
 "time": "4:00 PM",
 "signal": -1.442,
 "final": "",
@@ -18002,7 +18002,7 @@
 "units": 1.0,
 "result": null,
 "pl": 0.0,
-"status": "pre",
+"status": "live",
 "time": "4:00 PM",
 "signal": -1.185,
 "final": "",
@@ -18219,17 +18219,18 @@
 "pick": "Wake Forest -1.5",
 "line": "Wake Forest -1.5",
 "units": 1.0,
-"result": null,
-"pl": 0.0,
-"status": "live",
+"result": "L",
+"pl": -1.0,
+"status": "final",
 "time": "1:30 PM",
 "signal": 1.648,
-"final": "",
+"final": "88-85",
 "current": true,
 "away_read": "Underrated so far - FADE (reversion)",
 "home_read": "Fairly priced",
 "bettype": "Spread",
-"locked_at": "2026-11-27T13:30"
+"locked_at": "2026-11-27T13:30",
+"graded_at": "2026-11-27T16:15"
 }
 }
 }

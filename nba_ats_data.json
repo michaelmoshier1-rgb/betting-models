@@ -3909,7 +3909,7 @@
    "away": "MEM",
    "home": "MIN",
    "status": "pre",
-   "home_line": -3.5,
+   "home_line": -2.5,
    "open_line": -2.5,
    "home_margin": null,
    "away_score": 0.0,
