@@ -18132,17 +18132,18 @@
 "pick": "Texas Tech -7.5",
 "line": "Texas Tech -7.5",
 "units": 1.0,
-"result": null,
-"pl": 0.0,
-"status": "live",
+"result": "L",
+"pl": -1.0,
+"status": "final",
 "time": "11:30 PM",
 "signal": 1.089,
-"final": "",
+"final": "75-78",
 "current": false,
 "away_read": "Fairly priced",
 "home_read": "Fairly priced",
 "bettype": "Spread",
-"locked_at": "2026-11-27T10:00"
+"locked_at": "2026-11-27T10:00",
+"graded_at": "2026-11-28T02:00"
 },
 "cbb|2026-11-27|St Thomas|Liberty": {
 "k": "cbb|2026-11-27|St Thomas|Liberty",
