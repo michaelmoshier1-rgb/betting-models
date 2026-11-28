@@ -17326,17 +17326,18 @@
 "pick": "PHX -2.5",
 "line": "PHX -2.5",
 "units": 1.0,
-"result": null,
-"pl": 0.0,
-"status": "live",
+"result": "L",
+"pl": -1.0,
+"status": "final",
 "time": "9:00 PM",
 "signal": 1.093,
-"final": "",
+"final": "113-109",
 "current": true,
 "away_read": "Fairly priced",
 "home_read": "Fairly priced",
 "bettype": "Spread",
-"locked_at": "2026-11-27T01:00"
+"locked_at": "2026-11-27T01:00",
+"graded_at": "2026-11-27T23:45"
 },
 "nba|2026-11-27|LAL|SAS": {
 "k": "nba|2026-11-27|LAL|SAS",
