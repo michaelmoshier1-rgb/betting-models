@@ -17823,17 +17823,18 @@
 "pick": "Missouri St +3.5",
 "line": "Oral Roberts -3.5",
 "units": 1.0,
-"result": null,
-"pl": 0.0,
-"status": "live",
+"result": "L",
+"pl": -1.0,
+"status": "final",
 "time": "8:00 PM",
 "signal": -1.016,
-"final": "",
+"final": "66-72",
 "current": true,
 "away_read": "Too early",
 "home_read": "Underrated so far - FADE (reversion)",
 "bettype": "Spread",
-"locked_at": "2026-11-27T01:00"
+"locked_at": "2026-11-27T01:00",
+"graded_at": "2026-11-27T22:15"
 },
 "cbb|2026-11-27|Miami|Alabama": {
 "k": "cbb|2026-11-27|Miami|Alabama",
